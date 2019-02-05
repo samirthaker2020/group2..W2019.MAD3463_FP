@@ -1,6 +1,7 @@
 package com.lambton.order.user;
 import com.lambton.*;
 import com.lambton.order.user.cart.ShoppingCart;
+import com.lambton.order.user.shipping.ShippingInfo;
 import com.lambton.order.user.user.User;
 import com.lambton.order.user.user.*;
 import java.io.Console;
@@ -100,13 +101,24 @@ public class Tester {
 	}
 
 	public static void proceedToCheckout()
-	{
+	{Scanner sc=new Scanner(System.in);
 		char ch1;
-		System.out.println("Enter the shipping information:");
+		System.out.println("Enter the shipping Type::");
+		String type=sc.nextLine();
+		System.out.println("Enter the shipping regionID::");
+		int rid=Integer.parseInt(sc.nextLine());
+
 		//call method to add shipping details and to view shipping details...
+		ShippingInfo si=new ShippingInfo(1,type,5,rid);
+		if(si.updateShipping(si))
+		{
+			System.out.println("Your Order has been received");
+		}else
+		{System.out.println("try again later...");}
 
 
-		Scanner sc = new Scanner(System.in);
+
+
 		// call method to view order details...
 		System.out.println("Do you want to update the shipping details: (press y/n)");
 
