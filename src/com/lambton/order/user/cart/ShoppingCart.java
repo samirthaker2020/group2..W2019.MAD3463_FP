@@ -11,7 +11,7 @@ public class ShoppingCart {
 
 	private int quanity;
 
-	private int dateAdded;
+	private String dateAdded;
 
 	ArrayList<ShoppingCart> cartList = new ArrayList<ShoppingCart>();
 
@@ -19,7 +19,7 @@ public class ShoppingCart {
 
 	}
 
-	public ShoppingCart(int cartId, int productId, int quanity, int dateAdded) {
+	public ShoppingCart(int cartId, int productId, int quanity, String dateAdded) {
 
 		this.cartId = cartId;
 		this.productId = productId;
@@ -51,11 +51,11 @@ public class ShoppingCart {
 		this.quanity = quanity;
 	}
 
-	public int getDateAdded() {
+	public String getDateAdded() {
 		return dateAdded;
 	}
 
-	public void setDateAdded(int dateAdded) {
+	public void setDateAdded(String dateAdded) {
 		this.dateAdded = dateAdded;
 	}
 
@@ -102,7 +102,7 @@ public class ShoppingCart {
 				int cartId = sc.getCartId();
 				int productId = sc.getProductId();
 				int quantity = sc.getQuanity();
-				int dateAdded = sc.getDateAdded();
+				String dateAdded = sc.getDateAdded();
 
 			}
 		}

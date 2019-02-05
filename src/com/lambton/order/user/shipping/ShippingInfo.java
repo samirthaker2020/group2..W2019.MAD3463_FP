@@ -1,7 +1,5 @@
 package com.lambton.order.user.shipping;
 
-
-
     import java.util.ArrayList;
 
     public class ShippingInfo {

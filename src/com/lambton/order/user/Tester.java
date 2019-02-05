@@ -1,22 +1,24 @@
 package com.lambton.order.user;
 import com.lambton.*;
+import com.lambton.order.user.cart.ShoppingCart;
 import com.lambton.order.user.user.User;
 import com.lambton.order.user.user.*;
 import java.io.Console;
-import java.util.Scanner;
+import java.util.*;
 
 public class Tester {
 
 
 	private static void displayCustomerOptions(Customer c)
-	{
-		int ch;char ch1;
+	{	Customer customer = new Customer();
+		int ch;char ch1='Y';
 		do{
 			System.out.println("Press the number");
 			System.out.println("1 : Update Profile");
 			System.out.println("2 : View products");
 			System.out.println("3 : View Cart Details");
 			System.out.println("4 : View Order Details");
+			System.out.println("5 : View customer Details");
 			System.out.println("Enter your Choice :: ");
 			Scanner scanner=new Scanner(System.in);
 			ch = scanner.nextInt();
@@ -37,6 +39,7 @@ public class Tester {
 					break;
 				default: System.out.println("Invalid choice!! Please enter correct choice");
 					break;
+
 			}
 			System.out.println("Do you want to continue??(Enter Y/N)");
 			ch1 = scanner.next().charAt(0);;
@@ -44,20 +47,55 @@ public class Tester {
 		while(ch1=='y' || ch1=='Y');
 	}
 
+	public static void product()
+	{
+		ArrayList<String> al= new ArrayList<String>();
+
+		// Adding items to arrayList
+		System.out.println("---------------------------------------------------");
+		System.out.println("-------------------Products------------------------");
+		System.out.println("---------------------------------------------------");
+		al.add("Iphone X");
+		al.add("Samsung S9");
+		al.add("Google Pixel 3"); // it will add Item3 to the third position of array list
+		al.add("Nokia 7");
+
+		for (int i = 0; i <al.size(); i++) {
+			System.out.println( i + " - Item: " + al.get(i));
+		}
+		System.out.println("---------------------------------------------------");
+	}
 	private static void displayProducts()
 	{
+		ShoppingCart s=new ShoppingCart();
+		product();
 		//call method  to display all the products into the catalog
 		int ch;
 		char ch1;
 		System.out.println("Enter the product id to add the product to the cart");
 		Scanner sc = new Scanner(System.in);
 		ch=sc.nextInt();
+		System.out.println("Enter the product Quantity:");
+
+		int q=sc.nextInt();
+		ShoppingCart sh=new ShoppingCart( 1, ch, q, Calendar.getInstance().toString());
+			if(s.addCartItem(sh))
+			{
+				System.out.println("Added to cart");
+
+			}else{
+				System.out.println("Failed");
+			}
+			System.out.println("--------------------------");
+
 		//call the method to add the item to cart
+
 		System.out.println("Do you want to proceed to checkout??(Press y/n)");
 		ch1=sc.next().charAt(0);
 		proceedToCheckout();
 		if(ch1=='y' || ch=='Y'){
 			//call the method to add the product into the cart with product id
+			proceedToCheckout();
 		}
 	}
 
@@ -66,6 +104,7 @@ public class Tester {
 		char ch1;
 		System.out.println("Enter the shipping information:");
 		//call method to add shipping details and to view shipping details...
+
 
 		Scanner sc = new Scanner(System.in);
 		// call method to view order details...

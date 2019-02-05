@@ -75,7 +75,7 @@ public class Customer extends User {
 		orderList.add(o);
 	}
 
-	public Customer(int cartId, int productId, int quanity, int dateAdded) {
+	public Customer(int cartId, int productId, int quanity, String dateAdded) {
 
 		ShoppingCart cart = new ShoppingCart();
 		cart.setCartId(cartId);
